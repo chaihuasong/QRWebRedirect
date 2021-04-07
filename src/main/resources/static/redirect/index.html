@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>loading...</title>
+</head>
+<script lang="javascript">
+    const ajax = new XMLHttpRequest();
+    ajax.open("get", "/isMainland", true)
+    ajax.send()
+    ajax.onreadystatechange = function () {
+        if (ajax.readyState === 4 && ajax.status === 200) {
+            const res = ajax.responseText
+            if (res != null && res === "true") {
+                window.location.href = "http://zh.htzchina.org"
+            } else {
+                window.location.href = "http://tw.htzchina.org"
+            }
+        }
+    }
+</script>
+<body>
+<!-- Note: don't tell people to `click` the link, just tell them that it is a link. -->
+<!-- If you are not redirected automatically, follow this <a href='http://htz.org.cn'>link to 黄庭禅官网</a>.    </body></html> -->
+</body>
+</html>
